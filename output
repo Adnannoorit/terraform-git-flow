@@ -1,0 +1,677 @@
+theia@2394eef211ed:/home/project$ git clone /gitrepos/terraform-proj1.git/
+Cloning into 'terraform-proj1'...
+done.
+theia@2394eef211ed:/home/project$ cd terraform-proj1
+theia@2394eef211ed:/home/project/terraform-proj1$ ls -la
+total 8
+drwxr-xr-x 3 theia theia 51 Aug 1 16:11 .
+drwxr-xr-x 3 theia theia 29 Aug 1 16:11 ..
+drwxr-xr-x 8 theia theia 163 Aug 1 16:11 .git
+-rw-r--r-- 1 theia theia 861 Aug 1 16:11 .gitignore
+-rw-r--r-- 1 theia theia 722 Aug 1 16:11 main.tf
+theia@2394eef211ed:/home/project/terraform-proj1$ export | grep TERRAFORM
+declare -x TERRAFORM_EC2_SUBNET_ID="subnet-0a82995f2b984a433"
+declare -x TERRAFORM_STATE_S3_BUCKET="cloudacademylabs-terraformstates3bucket-y2ro1wywkb55"
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..caa76a0 100644
+--- a/main.tf
++++ b/main.tf
+@@ -4,7 +4,7 @@ provider "aws" {
+
+terraform {
+backend "s3" {
+- bucket = "aws-ca-terraform-state"
++ bucket = "cloud-terraformstates3bucket-y2ro1wywkb55"
+encrypt = true
+key = "path/to/state/state.tfstate" # Where you want to store state in S3
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+There are some problems with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+Error: Missing newline after argument
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+
+An argument definition must end with a newline.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+35: tags = {
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 35, in resource "aws_instance" "web":
+35: tags = {
+36: Name = "HelloWorld"
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 36, in resource "aws_instance" "web":
+36: Name = "HelloWorld"
+37: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 37, in resource "aws_instance" "web":
+37: }
+38: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+There are some problems with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+Error: Missing newline after argument
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+
+An argument definition must end with a newline.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+35: tags = {
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 35, in resource "aws_instance" "web":
+35: tags = {
+36: Name = "HelloWorld"
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 36, in resource "aws_instance" "web":
+36: Name = "HelloWorld"
+37: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 37, in resource "aws_instance" "web":
+37: }
+38: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+There are some problems with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+Error: Missing newline after argument
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+
+An argument definition must end with a newline.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+35: tags = {
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 35, in resource "aws_instance" "web":
+35: tags = {
+36: Name = "HelloWorld"
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 36, in resource "aws_instance" "web":
+36: Name = "HelloWorld"
+37: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 37, in resource "aws_instance" "web":
+37: }
+38: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+There are some problems with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+Error: Missing newline after argument
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+
+An argument definition must end with a newline.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+35: tags = {
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 35, in resource "aws_instance" "web":
+35: tags = {
+36: Name = "HelloWorld"
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 36, in resource "aws_instance" "web":
+36: Name = "HelloWorld"
+37: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 37, in resource "aws_instance" "web":
+37: }
+38: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+There are some problems with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+Error: Missing newline after argument
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+
+An argument definition must end with a newline.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433""
+35: tags = {
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 35, in resource "aws_instance" "web":
+35: tags = {
+36: Name = "HelloWorld"
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 36, in resource "aws_instance" "web":
+36: Name = "HelloWorld"
+37: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+
+Error: Invalid multi-line string
+
+on main.tf line 37, in resource "aws_instance" "web":
+37: }
+38: }
+
+Quoted strings may not be split over multiple lines. To produce a multi-line
+string, either use the \n escape to represent a newline character or use the
+"heredoc" multi-line template syntax.
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+There are some problems with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+
+Error: Missing newline after argument
+
+on main.tf line 33, in resource "aws_instance" "web":
+33: subnet_id = "subnet-0a82995f2b984a433"""
+
+An argument definition must end with a newline.
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+
+Initializing the backend...
+
+Successfully configured the backend "s3"! Terraform will automatically
+use this backend unless the backend configuration changes.
+Error refreshing state: BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform plan
+
+Error: Error loading state: BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform plan
+
+Error: Error loading state: BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform plan
+Backend reinitialization required. Please run "terraform init".
+Reason: Backend configuration changed for "s3"
+
+The "backend" is the interface that Terraform uses to store state,
+perform operations, etc. If this message is showing up, it means that the
+Terraform configuration you're using is using a custom configuration for
+the Terraform backend.
+
+Changes to backend configurations require reinitialization. This allows
+Terraform to setup the new configuration, copy existing state, etc. This is
+only done during "terraform init". Please run that command now then try again.
+
+If the change reason above is incorrect, please verify your configuration
+hasn't changed and try again. At this point, no changes to your existing
+configuration or state have been made.
+
+
+Error: Initialization required. Please see the error message above.
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+
+Initializing the backend...
+Backend configuration changed!
+
+Terraform has detected that the configuration specified for the backend
+has changed. Terraform will now check for existing state in the backends.
+
+
+
+Error: Error loading state:
+BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+
+Terraform failed to load the default state from the "s3" backend.
+State migration cannot occur unless the state can be loaded. Backend
+modification and state migration has been aborted. The state in both the
+source and the destination remain unmodified. Please resolve the
+above error and try again.
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform plan
+
+Error: Error loading state: BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform plan
+
+Error: Error loading state: BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+
+Initializing the backend...
+Error refreshing state: BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform plan
+
+Error: Error loading state: BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+
+Initializing the backend...
+Error refreshing state: BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..ca0ce1f 100644
+--- a/main.tf
++++ b/main.tf
+@@ -1,13 +1,13 @@
+provider "aws" {
+- region = "ap-southeast-2"
++ region = "us-west-2"
+}
+
+terraform {
+backend "s3" {
+- bucket = "aws-ca-terraform-state"
++ bucket = "cloud-terraformstates3bucket-y2ro1wywkb55"
+encrypt = true
+key = "path/to/state/state.tfstate" # Where you want to store state in S3
+- region = "ap-southeast-2"
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..ca0ce1f 100644
+--- a/main.tf
++++ b/main.tf
+@@ -1,13 +1,13 @@
+provider "aws" {
+- region = "ap-southeast-2"
++ region = "us-west-2"
+}
+
+terraform {
+backend "s3" {
+- bucket = "aws-ca-terraform-state"
++ bucket = "cloud-terraformstates3bucket-y2ro1wywkb55"
+encrypt = true
+key = "path/to/state/state.tfstate" # Where you want to store state in S3
+- region = "ap-southeast-2"
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..ca0ce1f 100644
+--- a/main.tf
++++ b/main.tf
+@@ -1,13 +1,13 @@
+provider "aws" {
+- region = "ap-southeast-2"
++ region = "us-west-2"
+}
+
+terraform {
+backend "s3" {
+- bucket = "aws-ca-terraform-state"
++ bucket = "cloud-terraformstates3bucket-y2ro1wywkb55"
+encrypt = true
+key = "path/to/state/state.tfstate" # Where you want to store state in S3
+- region = "ap-southeast-2"
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..7be0467 100644
+--- a/main.tf
++++ b/main.tf
+@@ -1,13 +1,13 @@
+provider "aws" {
+- region = "ap-southeast-2"
++ region = "us-west-2"
+}
+
+terraform {
+backend "s3" {
+- bucket = "aws-ca-terraform-state"
++ bucket = "cloud-terraformstates3bucket-y2ro1wywkb55"
+encrypt = true
+key = "path/to/state/state.tfstate" # Where you want to store state in S3
+- region = "ap-southeast-2"
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..d89ccd5 100644
+--- a/main.tf
++++ b/main.tf
+@@ -1,13 +1,13 @@
+provider "aws" {
+- region = "ap-southeast-2"
++ region = "us-west-2"
+}
+
+terraform {
+backend "s3" {
+- bucket = "aws-ca-terraform-state"
++ bucket = "cloud-terraformstates3bucket-y2ro1wywkb55"
+encrypt = true
+key = "path/to/state/state.tfstate" # Where you want to store state in S3
+- region = "ap-southeast-2"
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..45ae6c1 100644
+--- a/main.tf
++++ b/main.tf
+@@ -1,13 +1,13 @@
+provider "aws" {
+- region = "ap-southeast-2"
++ region = "us-west-2"
+}
+
+terraform {
+backend "s3" {
+- bucket = "aws-ca-terraform-state"
++ bucket = "cloud-terraformstates3bucket-y2ro1wywkb55"
+encrypt = true
+key = "path/to/state/state.tfstate" # Where you want to store state in S3
+- region = "ap-southeast-2"
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..45ae6c1 100644
+--- a/main.tf
++++ b/main.tf
+@@ -1,13 +1,13 @@
+provider "aws" {
+- region = "ap-southeast-2"
++ region = "us-west-2"
+}
+
+terraform {
+backend "s3" {
+- bucket = "aws-ca-terraform-state"
++ bucket = "cloudacademylabs-terraformstates3bucket-y2ro1wywkb55"
+encrypt = true
+key = "path/to/state/state.tfstate" # Where you want to store state in S3
+- region = "ap-southeast-2"
+theia@2394eef211ed:/home/project/terraform-proj1$
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..06f6d77 100644
+--- a/main.tf
++++ b/main.tf
+@@ -1,15 +1,8 @@
+provider "aws" {
+- region = "ap-southeast-2"
++ region = "us-west-2"
+}
+
+-terraform {
+- backend "s3" {
+- bucket = "aws-ca-terraform-state"
+- encrypt = true
+- key = "path/to/state/state.tfstate" # Where you want to store state in S3
+- region = "ap-southeast-2"
+- }
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform init
+
+Initializing the backend...
+Terraform has detected you're unconfiguring your previously set "s3" backend.
+
+Error: Error loading state:
+BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+
+Terraform failed to load the default state from the "s3" backend.
+State migration cannot occur unless the state can be loaded. Backend
+modification and state migration has been aborted. The state in both the
+source and the destination remain unmodified. Please resolve the
+above error and try again.
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform plan
+Backend reinitialization required. Please run "terraform init".
+Reason: Unsetting the previously set backend "s3"
+
+The "backend" is the interface that Terraform uses to store state,
+perform operations, etc. If this message is showing up, it means that the
+Terraform configuration you're using is using a custom configuration for
+the Terraform backend.
+
+Changes to backend configurations require reinitialization. This allows
+Terraform to setup the new configuration, copy existing state, etc. This is
+only done during "terraform init". Please run that command now then try again.
+
+If the change reason above is incorrect, please verify your configuration
+hasn't changed and try again. At this point, no changes to your existing
+configuration or state have been made.
+
+
+Error: Initialization required. Please see the error message above.
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ terraform plan
+
+Error: Error loading state: BucketRegionError: incorrect region, the bucket is not in 'ap-southeast-2' region at endpoint ''
+status code: 301, request id: , host id:
+
+
+theia@2394eef211ed:/home/project/terraform-proj1$ git diff
+diff --git a/main.tf b/main.tf
+index c019250..e754d6a 100644
+--- a/main.tf
++++ b/main.tf
+@@ -1,14 +1,14 @@
+provider "aws" {
+- region = "ap-southeast-2"
++ region = "us-west-2"
+}
+
+terraform {
+backend "s3" {
+- bucket = "aws-ca-terraform-state"
++ bucket = "cloudacademylabs-terraformstates3bucket-y2ro1wywkb55"
+encrypt = true
+key = "path/to/state/state.tfstate" # Where you want to store state in S3
+- region = "ap-southeast-2"
+theia@2394eef211ed:/home/project/terraform-proj1$ git add main.tf
+theia@2394eef211ed:/home/project/terraform-proj1$ git add .
+theia@2394eef211ed:/home/project/terraform-proj1$ git commit -a -m "commit message"
+[master 56db3e9] commit message
+1 file changed, 7 insertions(+), 7 deletions(-)
+theia@2394eef211ed:/home/project/terraform-proj1$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+(use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+theia@2394eef211ed:/home/project/terraform-proj1$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+(use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+theia@2394eef211ed:/home/project/terraform-proj1$ git log
+commit 56db3e9de5d0e6377e4d9772bd17178ca791ac17 (HEAD -> master)
+Author: 
+Date: Mon Aug 1 16:44:58 2022 +0000
+
+commit message
+
+commit d554c523b74a282357686738d0fad47518dc312f (origin/master, origin/HEAD)
+Author: 
+Date: Wed Nov 18 04:17:53 2020 +0000
+
+initial commit
+theia@2394eef211ed:/home/project/terraform-proj1$ git -C /gitrepos/terraform-proj1.git/ log
+commit d554c523b74a282357686738d0fad47518dc312f (HEAD -> master)
+Author: 
+Date: Wed Nov 18 04:17:53 2020 +0000
+
+initial commit
+theia@2394eef211ed:/home/project/terraform-proj1$ git push
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 430 bytes | 430.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To /gitrepos/terraform-proj1.git/
+d554c52..56db3e9 master -> master
+theia@2394eef211ed:/home/project/terraform-proj1$ git -C /gitrepos/terraform-proj1.git/ log
+commit 56db3e9de5d0e6377e4d9772bd17178ca791ac17 (HEAD -> master)
+Author: 
+Date: Mon Aug 1 16:44:58 2022 +0000
+
+commit message
+
+commit d554c523b74a282357686738d0fad47518dc312f
+Author:
+Date: Wed Nov 18 04:17:53 2020 +0000
+
+initial commit
+theia@2394eef211ed:/home/project/terraform-proj1$
